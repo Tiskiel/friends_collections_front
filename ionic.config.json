@@ -1,0 +1,7 @@
+{
+  "name": "friends_collections",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
