@@ -1,0 +1,18 @@
+<main>
+  <p>Connection</p>
+  <form [formGroup]="formAuth" (ngSubmit)="submitAuthForm()">
+    <label>Pseudo : </label>
+    <br>
+    <input type="text" name="pseudo" formControlName="pseudo">
+    <br>
+    <label>Email : </label>
+    <br>
+    <input type="email" name="email" formControlName="email">
+    <br>
+    <label>Password : </label>
+    <br>
+    <input type="password" name="password" formControlName="password" required>
+    <br><br>
+    <button type="submit" [hidden]="!formAuth.valid">Submit</button>
+  </form>
+</main>
