@@ -1,20 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Friends Collections
     </ion-title>
+    <div *ngIf="isConnected">
+      <img src="../../assets/icon/basicIcone.png" alt="profilbasic" (click)="clicked()">
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngIf="isConnected">
+    <app-home-connected></app-home-connected>
+  </div>
+  <div *ngIf="!isConnected">
+    <app-home-not-connected></app-home-not-connected>
   </div>
 </ion-content>
