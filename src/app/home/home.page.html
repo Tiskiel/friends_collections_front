@@ -1,15 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Friends Collections
-    </ion-title>
-    <div *ngIf="isConnected">
-      <img src="../../assets/icon/basicIcone.png" alt="profilbasic" (click)="clicked()">
-    </div>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+  <app-header></app-header>
   <div *ngIf="isConnected">
     <app-home-connected></app-home-connected>
   </div>

@@ -15,4 +15,26 @@
     <br><br>
     <button type="submit" [hidden]="!formAuth.valid">Submit</button>
   </form>
+  <br>
+  <div>
+    <span>Pas encore de compte ?</span><span class="clickHere" (click)="clicked()">click ici !</span>
+  </div>
+  <div *ngIf="isClicked">
+    <p>Register</p>
+    <form [formGroup]="formRegister" (ngSubmit)="submitRegisterForm()">
+      <label>Pseudo : </label>
+      <br>
+      <input type="text" name="pseudo" formControlName="pseudo">
+      <br>
+      <label>Email : </label>
+      <br>
+      <input type="email" name="email" formControlName="email">
+      <br>
+      <label>Password : </label>
+      <br>
+      <input type="password" name="password" formControlName="password" required>
+      <br><br>
+      <button type="submit" [hidden]="!formRegister.valid">Submit</button>
+    </form>
+  </div>
 </main>

@@ -10,7 +10,10 @@ import { MemberService } from '../../services/member.service';
 })
 export class HomeNotConnectedComponent implements OnInit {
   authData!: Auth_Register;
+  registerData!: Auth_Register;
   formAuth: FormGroup;
+  formRegister: FormGroup;
+  isClicked: boolean = false;
 
   constructor(
     private _member: MemberService,
@@ -21,6 +24,12 @@ export class HomeNotConnectedComponent implements OnInit {
       email: ['', Validators.email],
       password: ['', Validators.required]
     });
+
+    this.formRegister = this._formBuilder.group({
+      pseudo: ['', Validators.required],
+      email: ['', [Validators.email, Validators.required]],
+      password: ['', Validators.required]
+    });
   }
 
   ngOnInit() {
@@ -28,7 +37,6 @@ export class HomeNotConnectedComponent implements OnInit {
   }
 
   submitAuthForm() {
-    console.log(this.formAuth.value);
     this.authData = this.formAuth.value;
     this._member.auth(this.authData).subscribe(
       (data: any) => {
@@ -37,8 +45,27 @@ export class HomeNotConnectedComponent implements OnInit {
     );
   }
 
-  loadData(): void {
+  auth(authData: Auth_Register) {
+    this._member.auth(authData).subscribe(
+      (data: any) => {
+        this._member.connected(data.token);
+      }
+    );
+  }
 
+  submitRegisterForm() {
+    this.registerData = this.formRegister.value;
+    this._member.register(this.registerData).subscribe(
+      (data: any) => {
+        if (data === "Registed") {
+          this.auth(this.registerData);
+        }
+      }
+    );
+  }
+
+  clicked(): void {
+    this.isClicked = !this.isClicked;
   }
 
 }

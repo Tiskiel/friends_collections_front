@@ -19,8 +19,18 @@ export class MemberService {
     private _client: HttpClient
   ) { }
 
-  auth(data: Auth_Register): Observable<any> {
+  register(data: Auth_Register): Observable<any> {
+    if (!(data.pseudo && data.email && data.password)) {
+      throw new Error('Data not correct');
+    }
 
+    return this._client.post(this.urlRegister, data);
+  }
+
+  auth(data: Auth_Register): Observable<any> {
+    if (data.email && data.pseudo) {
+      this.data = data;
+    }
     if (!data.email && data.pseudo) {
       this.data = {
         'pseudo': data.pseudo,
@@ -39,6 +49,8 @@ export class MemberService {
 
   connected(token: string): void {
     localStorage.setItem('auth_token', token);
+    console.log(localStorage.getItem('auth_token'));
+
     this.isConnectedObservable.next(true);
   }
 

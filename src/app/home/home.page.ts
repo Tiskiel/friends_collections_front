@@ -9,7 +9,7 @@ import { MemberService } from '../shared/services/member.service';
 })
 export class HomePage implements OnInit {
   isConnected: boolean = this._member.isConnected;
-  isClicked: boolean = false;
+
   constructor(
     private _member: MemberService
   ) { }
@@ -20,7 +20,5 @@ export class HomePage implements OnInit {
     });
   }
 
-  clicked() {
-    this.isClicked = !this.isClicked;
-  }
+
 }
