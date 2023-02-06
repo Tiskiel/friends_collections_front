@@ -1,0 +1,6 @@
+<section>
+  <div *ngFor="let item of menuArray">
+    <h2>{{item.title}}</h2>
+    <img class="pointer" (click)="clicked(item.title)" [src]="item.image" [alt]="item.title">
+  </div>
+</section>

@@ -1,9 +1,11 @@
 <ion-content [fullscreen]="true">
   <app-header></app-header>
-  <div *ngIf="isConnected">
-    <app-home-connected></app-home-connected>
-  </div>
-  <div *ngIf="!isConnected">
-    <app-home-not-connected></app-home-not-connected>
+  <div class="body">
+    <div *ngIf="isConnected">
+      <app-home-connected></app-home-connected>
+    </div>
+    <div *ngIf="!isConnected">
+      <app-home-not-connected></app-home-not-connected>
+    </div>
   </div>
 </ion-content>

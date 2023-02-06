@@ -11,9 +11,11 @@ import { Auth_Register } from '../models/auth_register.model';
 export class MemberService {
   urlAuth: string = environment.AUTH_PATH;
   urlRegister: string = environment.REGISTER_PATH;
+  urlMyProfil: string = environment.MY_PROFIL_PATH;
   isConnected: boolean = false;
   isConnectedObservable: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.isConnected);
-  data?: any;
+  data!: any;
+  currentUser!: Auth_Register | null;
 
   constructor(
     private _client: HttpClient
@@ -57,5 +59,13 @@ export class MemberService {
   disconnect(): void {
     localStorage.removeItem('auth_token');
     this.isConnectedObservable.next(false);
+  }
+
+  checkConnection(): Observable<any> {
+    return this.isConnectedObservable;
+  }
+
+  getMyProfil(): Observable<any> {
+    return this._client.get<any>(this.urlMyProfil);
   }
 }

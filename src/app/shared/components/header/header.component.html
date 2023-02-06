@@ -1,17 +1,20 @@
-<div class="header">
+<header class="header">
   <div class="titleHeaderHomePage">Friends Collections</div>
   <div class="imageHeaderHomePage" *ngIf="isConnected">
     <img [src]="pictureProfil" alt="profilbasic" (click)="clicked()">
   </div>
-</div>
+</header>
 <div [class]="menuHeader" *ngIf="isClicked">
-  <ul>
-    <li>Profil</li>
-    <li>Friends</li>
-    <li>Wishlist</li>
-    <li>Collections</li>
-    <li>Messages</li>
-    <li>contact</li>
-    <li class="disconnect" (click)="disconnect()">Déconnexion</li>
-  </ul>
+  <div class="menuHeaderContent">
+    <div class="topBar"><span class="pointer" (click)="clicked()">X</span></div>
+    <ul class="ulMenuHeader">
+      <li>Profil</li>
+      <li>Friends</li>
+      <li>Wishlist</li>
+      <li>Collections</li>
+      <li>Messages</li>
+      <li>contact</li>
+      <li class="disconnect pointer" (click)="disconnect()">Déconnexion</li>
+    </ul>
+  </div>
 </div>

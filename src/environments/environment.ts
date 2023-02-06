@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   AUTH_PATH: "http://localhost:8080/api/auth/login",
-  REGISTER_PATH: "http://localhost:8080/api/auth/register"
+  REGISTER_PATH: "http://localhost:8080/api/auth/register",
+  MY_PROFIL_PATH: "http://localhost:8080/api/user/me"
 };
 
 /*
