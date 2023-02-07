@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Menu } from '../../models/menu.model';
 import { MemberService } from '../../services/member.service';
 
@@ -40,7 +41,8 @@ export class HomeConnectedComponent implements OnInit {
   ];
 
   constructor(
-    private _member: MemberService
+    private _member: MemberService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -55,6 +57,10 @@ export class HomeConnectedComponent implements OnInit {
     switch (title) {
       case "Déconnexion": {
         this.disconnect();
+        break;
+      }
+      case "Profile": {
+        this._router.navigate(['profile']);
         break;
       }
       default: {

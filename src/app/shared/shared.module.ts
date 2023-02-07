@@ -4,11 +4,12 @@ import { HomeConnectedComponent } from './components/home-connected/home-connect
 import { HomeNotConnectedComponent } from './components/home-not-connected/home-not-connected.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
 @NgModule({
-  declarations: [HomeConnectedComponent, HomeNotConnectedComponent, HeaderComponent],
+  declarations: [HomeConnectedComponent, HomeNotConnectedComponent, HeaderComponent, ProfileComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,6 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
     HomeConnectedComponent,
     HomeNotConnectedComponent,
     HeaderComponent,
+    ProfileComponent
   ]
 })
 export class SharedModule { }

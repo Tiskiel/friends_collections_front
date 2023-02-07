@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MemberService } from '../../services/member.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class HeaderComponent implements OnInit {
   menuHeader: string = "menuHeader";
 
   constructor(
-    private _membre: MemberService
+    private _membre: MemberService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -29,5 +31,22 @@ export class HeaderComponent implements OnInit {
   disconnect() {
     this.isClicked = !this.isClicked;
     this._membre.disconnect();
+  }
+
+  navigate(route: string) {
+    switch (route) {
+      case "home": {
+        this._router.navigate(['home']);
+        break;
+      }
+      case "profile": {
+        this._router.navigate(['profile']);
+        break;
+      }
+      default: {
+        console.log('Switch default header');
+        break;
+      }
+    }
   }
 }

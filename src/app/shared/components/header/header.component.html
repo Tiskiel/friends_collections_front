@@ -8,13 +8,14 @@
   <div class="menuHeaderContent">
     <div class="topBar"><span class="pointer" (click)="clicked()">X</span></div>
     <ul class="ulMenuHeader">
-      <li>Profil</li>
+      <li class="hoverLink pointer" (click)="navigate('home')">Home</li>
+      <li class="hoverLink pointer" (click)="navigate('profile')">Profil</li>
       <li>Friends</li>
       <li>Wishlist</li>
       <li>Collections</li>
       <li>Messages</li>
       <li>contact</li>
-      <li class="disconnect pointer" (click)="disconnect()">Déconnexion</li>
+      <li class="hoverLink pointer" (click)="disconnect()">Déconnexion</li>
     </ul>
   </div>
 </div>
