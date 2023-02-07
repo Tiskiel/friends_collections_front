@@ -16,7 +16,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.currentUser = this._member.currentUser;
     console.log(this.currentUser);
-
   }
 
 }

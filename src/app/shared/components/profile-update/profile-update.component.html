@@ -1,0 +1,15 @@
+<div class="body">
+  <h2 class="titleBodyInformations">Bienvenu sur ton profile {{currentUser.pseudo}} !</h2>
+  <div class="bodyInformations">
+    <p>Pseudo : {{currentUser.pseudo}}</p>
+    <p>Email : {{currentUser.email}}</p>
+    <p>Nom : {{currentUser.lastName}}</p>
+    <p>Prénom : {{currentUser.firstName}}</p>
+    <p>Date de naissance : {{currentUser.birthdate | date}}</p>
+    <p>Mobile : {{currentUser.phoneNumber}}</p>
+    <span>Rue : {{currentUser.street}}</span>
+    <span> N° : {{currentUser.homeNumber}}</span>
+    <p>Code postal : {{currentUser.postalCode}}</p>
+    <p>City : {{currentUser.city}}</p>
+  </div>
+</div>
