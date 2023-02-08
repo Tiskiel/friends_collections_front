@@ -13,7 +13,10 @@ export class IsConnectedGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!localStorage.getItem('auth_token')) {
-      this._router.navigate(['/home']);
+      if (state.url !== '/home') {
+        this._router.navigate(['/home']);
+        return false;
+      }
       return false;
     }
     return true;

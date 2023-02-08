@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IsConnectedResolver } from '../resolver/isConnected.resolver';
+import { IsConnectedGuard } from '../shared/guard/is-connected.guard';
 import { HomePage } from './home.page';
 
 const routes: Routes = [
@@ -9,7 +10,7 @@ const routes: Routes = [
     component: HomePage,
     resolve: {
       isConnectedResolver: IsConnectedResolver
-    }
+    }, canActivate: [IsConnectedGuard]
   }
 ];
 
