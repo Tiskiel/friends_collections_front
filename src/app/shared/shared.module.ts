@@ -5,11 +5,18 @@ import { HomeNotConnectedComponent } from './components/home-not-connected/home-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileUpdateComponent } from './components/profile-update/profile-update.component';
 
 
 
 @NgModule({
-  declarations: [HomeConnectedComponent, HomeNotConnectedComponent, HeaderComponent, ProfileComponent],
+  declarations: [
+    HomeConnectedComponent,
+    HomeNotConnectedComponent,
+    HeaderComponent,
+    ProfileComponent,
+    ProfileUpdateComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,7 +26,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomeConnectedComponent,
     HomeNotConnectedComponent,
     HeaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfileUpdateComponent
   ]
 })
 export class SharedModule { }

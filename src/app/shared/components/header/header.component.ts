@@ -48,5 +48,6 @@ export class HeaderComponent implements OnInit {
         break;
       }
     }
+    this.clicked();
   }
 }

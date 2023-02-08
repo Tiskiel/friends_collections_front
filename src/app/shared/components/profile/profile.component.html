@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body" *ngIf="currentUser">
   <h2 class="titleBodyInformations">Bienvenu sur ton profile {{currentUser.pseudo}} !</h2>
   <div class="bodyInformations">
     <p>Pseudo : {{currentUser.pseudo}}</p>

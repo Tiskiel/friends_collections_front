@@ -1,15 +1,18 @@
 <div class="body">
   <h2 class="titleBodyInformations">Bienvenu sur ton profile {{currentUser.pseudo}} !</h2>
   <div class="bodyInformations">
-    <p>Pseudo : {{currentUser.pseudo}}</p>
-    <p>Email : {{currentUser.email}}</p>
-    <p>Nom : {{currentUser.lastName}}</p>
-    <p>Prénom : {{currentUser.firstName}}</p>
-    <p>Date de naissance : {{currentUser.birthdate | date}}</p>
-    <p>Mobile : {{currentUser.phoneNumber}}</p>
-    <span>Rue : {{currentUser.street}}</span>
-    <span> N° : {{currentUser.homeNumber}}</span>
-    <p>Code postal : {{currentUser.postalCode}}</p>
-    <p>City : {{currentUser.city}}</p>
+    <form [formGroup]="updateFormUserInformations" (submit)="submitAuthUpdateUserInformations()">
+      <p>Pseudo : <input type="text" [placeholder]="currentUser.pseudo" formControlName="pseudo"></p>
+      <p>Email : <input type="email" [placeholder]="currentUser.email" formControlName="email"></p>
+      <p>Nom : <input type="text" [placeholder]="currentUser.lastName" formControlNam="lastName"></p>
+      <p>Prénom : <input type="text" [placeholder]="currentUser.firstName" formControlName="firstName"></p>
+      <p>Date de naissance : <input type="date" [placeholder]="currentUser.birthdate" formControlName="birthdate"></p>
+      <p>Mobile : <input type="text" [placeholder]="currentUser.phoneNumber" formControlName="phoneNumber"></p>
+      <span>Rue : <input type="text" [placeholder]="currentUser.street" formControlName="street"></span>
+      <span> N° : <input type="text" [placeholder]="currentUser.homeNumber" formControlName="homeNumber"></span>
+      <p>Code postal : <input type="text" [placeholder]="currentUser.postalCode" formControlName="postalCode"></p>
+      <p>City : <input type="text" [placeholder]="currentUser.city" formControlName="city"></p>
+      <button type="submit" [hidden]="!updateFormUserInformations.valid">Submit</button>
+    </form>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Profile } from '../../models/profile.model';
 import { MemberService } from '../../services/member.service';
 
@@ -10,12 +11,12 @@ import { MemberService } from '../../services/member.service';
 export class ProfileComponent implements OnInit {
   currentUser!: Profile;
   constructor(
-    private _member: MemberService
+    private _member: MemberService,
+    private _activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.currentUser = this._member.currentUser;
-    console.log(this.currentUser);
+    this.currentUser = this._activatedRoute.snapshot.data['connectedUser'];
   }
 
 }

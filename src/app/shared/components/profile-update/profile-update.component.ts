@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Profile } from '../../models/profile.model';
 import { UpdateProfile } from '../../models/updateProfile.model';
 import { MemberService } from '../../services/member.service';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-profile-update',
@@ -15,6 +16,7 @@ export class ProfileUpdateComponent implements OnInit {
   dataFormUserInformations!: UpdateProfile;
   constructor(
     private _member: MemberService,
+    private _profil: ProfileService,
     private _formBuilder: FormBuilder
   ) {
     this.updateFormUserInformations = this._formBuilder.group({
@@ -38,6 +40,7 @@ export class ProfileUpdateComponent implements OnInit {
 
   submitAuthUpdateUserInformations() {
     this.dataFormUserInformations = this.updateFormUserInformations.value;
+    this._profil.updateMyProfil(this.dataFormUserInformations);
   }
 
 }
