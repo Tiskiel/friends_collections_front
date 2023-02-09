@@ -63,6 +63,10 @@ export class HomeConnectedComponent implements OnInit {
         this._router.navigate(['profile']);
         break;
       }
+      case "Collection": {
+        this._router.navigate(['collection']);
+        break;
+      }
       default: {
         console.log('Ca fonctionne');
       }

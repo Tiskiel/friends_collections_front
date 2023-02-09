@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileUpdateComponent } from './components/profile-update/profile-update.component';
+import { UserCollectionComponent } from './components/user-collection/user-collection.component';
 
 
 
@@ -15,7 +16,8 @@ import { ProfileUpdateComponent } from './components/profile-update/profile-upda
     HomeNotConnectedComponent,
     HeaderComponent,
     ProfileComponent,
-    ProfileUpdateComponent
+    ProfileUpdateComponent,
+    UserCollectionComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { ProfileUpdateComponent } from './components/profile-update/profile-upda
     HomeNotConnectedComponent,
     HeaderComponent,
     ProfileComponent,
-    ProfileUpdateComponent
+    ProfileUpdateComponent,
+    UserCollectionComponent
   ]
 })
 export class SharedModule { }
