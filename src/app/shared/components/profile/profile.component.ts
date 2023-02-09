@@ -13,7 +13,6 @@ export class ProfileComponent implements OnInit {
   updateButtonClicked: boolean = false;
   createButtonClicked: boolean = false;
   constructor(
-    private _member: MemberService,
     private _activatedRoute: ActivatedRoute,
   ) { }
 
