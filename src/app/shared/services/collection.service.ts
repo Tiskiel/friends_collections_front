@@ -9,6 +9,7 @@ import { Item } from '../models/item.model';
 })
 export class CollectionService {
   listItemUserUrl: string = environment.USER_LIST_ITEMS_PATH;
+  typeItemUrl: string = environment.GET_TYPE_BY_ID_PATH;
   currentList!: Item[];
   constructor(
     private _client: HttpClient
@@ -16,6 +17,10 @@ export class CollectionService {
 
   getListItemUser(): Observable<any> {
     return this._client.get(this.listItemUserUrl);
+  }
+
+  getItemType(itemId: string): Observable<any> {
+    return this._client.get(this.typeItemUrl + itemId);
   }
 
   defineCurrentUserItemlist(data: Item[]) {
