@@ -5,7 +5,7 @@ export interface UpdateProfile {
   firstName: string;
   birthdate: Date;
   phoneNumber: string;
-  homeNumber: string;
+  homeNumber: number;
   street: string;
   postalCode: string;
   city: string;

@@ -1,0 +1,25 @@
+.body {
+  .titleBodyInformations {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+
+  .bodyInformations {
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+
+
+    p {
+      margin-top: 5px;
+    }
+
+    span {
+      margin-top: 5px;
+    }
+  }
+}

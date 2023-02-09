@@ -20,11 +20,11 @@ export class ProfileUpdateComponent implements OnInit {
     private _formBuilder: FormBuilder
   ) {
     this.updateFormUserInformations = this._formBuilder.group({
-      pseudo: ['', Validators.required],
-      email: ['', [Validators.email, Validators.required]],
+      pseudo: [''],
+      email: ['', Validators.email],
       lastName: [''],
       firstName: [''],
-      birthDate: [''],
+      birthdate: [''],
       phoneNumber: [''],
       street: [''],
       city: [''],
@@ -38,9 +38,34 @@ export class ProfileUpdateComponent implements OnInit {
     console.log(this.currentUser);
   }
 
-  submitAuthUpdateUserInformations() {
+  submitUpdateUserInformations() {
     this.dataFormUserInformations = this.updateFormUserInformations.value;
-    this._profil.updateMyProfil(this.dataFormUserInformations);
+    this._profil.updateMyProfil(this.assignFormWithCurrentUser(this.dataFormUserInformations)).subscribe((data) => {
+      console.log("Je suis dans data : ", data);
+    });
+    location.reload();
+  }
+
+  assignFormWithCurrentUser(formData: UpdateProfile): UpdateProfile {
+    let validKey: object = {};
+    let validUser: object = {};
+    for (const [key, value] of Object.entries(formData)) {
+      if (value !== '')
+        validKey = Object.assign(validKey, { [key]: value });
+    }
+
+    for (const [key, value] of Object.entries(this.currentUser)) {
+      console.log({ [key]: value });
+
+      if (key !== 'id' && key !== 'isAdmin')
+        validUser = Object.assign(validUser, { [key]: value });
+    }
+
+    const finalObject: any = Object.assign(validUser, validKey);
+    console.log(finalObject);
+
+    return finalObject;
   }
 
 }
+

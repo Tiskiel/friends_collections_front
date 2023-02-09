@@ -34,20 +34,7 @@ export class HeaderComponent implements OnInit {
   }
 
   navigate(route: string) {
-    switch (route) {
-      case "home": {
-        this._router.navigate(['home']);
-        break;
-      }
-      case "profile": {
-        this._router.navigate(['profile']);
-        break;
-      }
-      default: {
-        console.log('Switch default header');
-        break;
-      }
-    }
+    this._router.navigate([route]);
     this.clicked();
   }
 }

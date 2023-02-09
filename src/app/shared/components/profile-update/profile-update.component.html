@@ -1,7 +1,7 @@
 <div class="body">
   <h2 class="titleBodyInformations">Bienvenu sur ton profile {{currentUser.pseudo}} !</h2>
   <div class="bodyInformations">
-    <form [formGroup]="updateFormUserInformations" (submit)="submitAuthUpdateUserInformations()">
+    <form [formGroup]="updateFormUserInformations" (submit)="submitUpdateUserInformations()">
       <p>Pseudo : <input type="text" [placeholder]="currentUser.pseudo" formControlName="pseudo"></p>
       <p>Email : <input type="email" [placeholder]="currentUser.email" formControlName="email"></p>
       <p>Nom : <input type="text" [placeholder]="currentUser.lastName" formControlNam="lastName"></p>

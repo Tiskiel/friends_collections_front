@@ -16,7 +16,9 @@ export class IsConnectedResolver implements Resolve<any> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
+
     this._member.isConnectedObservable.next(true);
+
     return this._member.getMyProfil().pipe(
       tap((data: Profile) => {
         this._member.defineUser(data);
@@ -24,9 +26,13 @@ export class IsConnectedResolver implements Resolve<any> {
       catchError((error) => {
         this._member.isConnectedObservable.next(false);
         localStorage.clear();
-        this._router.navigate(['/home']);
+        if (state.url !== '/home') {
+          this._router.navigate(['/home']);
+        }
         return of(error);
       })
     );
+
+
   }
 }

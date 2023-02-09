@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UpdateProfile } from '../models/updateProfile.model';
 
@@ -12,7 +13,8 @@ export class ProfileService {
     private _client: HttpClient
   ) { }
 
-  updateMyProfil(data: UpdateProfile) {
+  updateMyProfil(data: UpdateProfile): Observable<any> {
+    console.log(this._client.put(this.urlUpdateMyProfil, data));
     return this._client.put(this.urlUpdateMyProfil, data);
   }
 }

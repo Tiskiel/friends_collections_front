@@ -1,4 +1,5 @@
-<div class="body" *ngIf="currentUser">
+<div class="body" *ngIf="currentUser && !updateButtonClicked">
+  <button (click)="isUpdateButtonClicked()">Update votre profile</button>
   <h2 class="titleBodyInformations">Bienvenu sur ton profile {{currentUser.pseudo}} !</h2>
   <div class="bodyInformations">
     <p>Pseudo : {{currentUser.pseudo}}</p>
@@ -12,4 +13,7 @@
     <p>Code postal : {{currentUser.postalCode}}</p>
     <p>City : {{currentUser.city}}</p>
   </div>
+</div>
+<div class="body" *ngIf="updateButtonClicked">
+  <app-profile-update></app-profile-update>
 </div>

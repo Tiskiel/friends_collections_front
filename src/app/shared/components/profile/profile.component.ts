@@ -10,6 +10,7 @@ import { MemberService } from '../../services/member.service';
 })
 export class ProfileComponent implements OnInit {
   currentUser!: Profile;
+  updateButtonClicked: boolean = false;
   constructor(
     private _member: MemberService,
     private _activatedRoute: ActivatedRoute,
@@ -17,6 +18,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this._activatedRoute.snapshot.data['connectedUser'];
+  }
+
+  isUpdateButtonClicked() {
+    this.updateButtonClicked = !this.updateButtonClicked;
   }
 
 }

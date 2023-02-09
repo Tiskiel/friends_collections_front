@@ -54,14 +54,13 @@ export class MemberService {
 
   connected(token: string): void {
     localStorage.setItem('auth_token', token);
-    console.log(localStorage.getItem('auth_token'));
-
     this.isConnectedObservable.next(true);
   }
 
   disconnect(): void {
     localStorage.removeItem('auth_token');
     this.isConnectedObservable.next(false);
+    this._router.navigate(['/home']);
   }
 
   checkConnection(): Observable<any> {

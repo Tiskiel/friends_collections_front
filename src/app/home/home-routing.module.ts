@@ -10,7 +10,7 @@ const routes: Routes = [
     component: HomePage,
     resolve: {
       isConnectedResolver: IsConnectedResolver
-    }, canActivate: [IsConnectedGuard]
+    }
   }
 ];
 
