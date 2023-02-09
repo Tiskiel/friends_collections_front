@@ -11,6 +11,7 @@ import { MemberService } from '../../services/member.service';
 export class ProfileComponent implements OnInit {
   currentUser!: Profile;
   updateButtonClicked: boolean = false;
+  createButtonClicked: boolean = false;
   constructor(
     private _member: MemberService,
     private _activatedRoute: ActivatedRoute,
@@ -22,6 +23,10 @@ export class ProfileComponent implements OnInit {
 
   isUpdateButtonClicked() {
     this.updateButtonClicked = !this.updateButtonClicked;
+  }
+
+  isCreateButtonClicked() {
+    this.createButtonClicked = !this.createButtonClicked;
   }
 
 }
