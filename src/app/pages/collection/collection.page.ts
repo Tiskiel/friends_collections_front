@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./collection.page.scss'],
 })
 export class CollectionPage implements OnInit {
-
+  showItem: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  showItemClicked(): void {
+    this.showItem = !this.showItem;
+  }
 }

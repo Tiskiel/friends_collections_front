@@ -1,25 +1,58 @@
 .body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
   .titleBodyInformations {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 5px;
+    font-size: 2rem;
+    margin-bottom: 2rem;
   }
 
   .bodyInformations {
-    margin-top: 30px;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
+    background-color: #f2f2f2;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 500px;
 
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    p {
-      margin-top: 5px;
+      p,
+      span {
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="date"] {
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid gray;
+        width: 100%;
+      }
+
+      button[type="submit"] {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+      }
     }
+  }
 
-    span {
-      margin-top: 5px;
+  @media (max-width: 500px) {
+    .bodyInformations {
+      width: 90%;
     }
   }
 }

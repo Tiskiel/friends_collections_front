@@ -120,4 +120,10 @@
       }
     }
   }
+
+  @media only screen and (max-width: 767px) {
+    .menuHeaderContent {
+      width: 90%;
+    }
+  }
 }

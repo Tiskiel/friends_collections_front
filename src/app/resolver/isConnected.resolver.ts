@@ -16,7 +16,6 @@ export class IsConnectedResolver implements Resolve<any> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
-
     this._member.isConnectedObservable.next(true);
 
     return this._member.getMyProfil().pipe(
@@ -32,7 +31,5 @@ export class IsConnectedResolver implements Resolve<any> {
         return of(error);
       })
     );
-
-
   }
 }

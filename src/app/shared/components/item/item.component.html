@@ -1,0 +1,11 @@
+<div *ngIf="currentItem">
+  <p>Name : {{currentItem.name}}</p>
+  <p>Langue : {{currentItem.language}}</p>
+  <p>Rareté : {{currentItem.rarity}}</p>
+  <p>Etat : {{currentItem.states}}</p>
+  <p>Version : {{currentItem.version}}</p>
+  <p>Origin : {{currentItem.origin === null ? "//" : currentItem.origin}}</p>
+  <p>Année de parution : {{currentItem.year === null ? "//" : currentItem.year}}</p>
+  <p>Description : {{currentItem.description === null ? "//" : currentItem.description}}</p>
+  <p>Image : feature in progress !</p>
+</div>

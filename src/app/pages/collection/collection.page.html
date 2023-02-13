@@ -1,6 +1,6 @@
 <ion-content>
   <app-header></app-header>
-  <div class="body">
+  <div class="body" *ngIf="!showItem">
     <app-user-collection></app-user-collection>
   </div>
 </ion-content>

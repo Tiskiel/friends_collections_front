@@ -9,7 +9,8 @@ export const environment = {
   MY_PROFIL_PATH: "http://localhost:8080/api/user/me",
   UPDATE_MY_PROFIL_PATH: "http://localhost:8080/api/user/me",
   USER_LIST_ITEMS_PATH: "http://localhost:8080/api/list/user",
-  GET_TYPE_BY_ID_PATH: "http://localhost:8080/api/types/type/"
+  GET_TYPE_BY_ID_PATH: "http://localhost:8080/api/types/type/",
+  GET_ITEM_BY_ID_PATH: "http://localhost:8080/api/collection/items/"
 };
 
 /*

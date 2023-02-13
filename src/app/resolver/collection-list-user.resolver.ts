@@ -25,7 +25,7 @@ export class CollectionListUserResolver implements Resolve<boolean> {
 
     return this._listCollectionService.getListItemUser().pipe(
       tap((data: any) => {
-        this._listCollectionService.defineCurrentUserItemlist(data.result.listItemUser);
+        this._listCollectionService.defineCurrentUserItemlist(data);
       }),
       catchError((error) => {
         this._member.isConnectedObservable.next(false);
