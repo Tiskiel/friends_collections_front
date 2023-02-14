@@ -39,8 +39,9 @@ export class ProfileUpdateComponent implements OnInit {
 
   submitUpdateUserInformations() {
     this.dataFormUserInformations = this.updateFormUserInformations.value;
+    console.log("Je suis dans data : ", this.dataFormUserInformations);
     this._profil.updateMyProfil(this.assignFormWithCurrentUser(this.dataFormUserInformations)).subscribe((data) => {
-      console.log("Je suis dans data : ", data);
+
     });
     location.reload();
   }

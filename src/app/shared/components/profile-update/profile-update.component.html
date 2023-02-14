@@ -4,7 +4,7 @@
     <form [formGroup]="updateFormUserInformations" (submit)="submitUpdateUserInformations()">
       <p>Pseudo : <input type="text" [placeholder]="currentUser.pseudo" formControlName="pseudo"></p>
       <p>Email : <input type="email" [placeholder]="currentUser.email" formControlName="email"></p>
-      <p>Nom : <input type="text" [placeholder]="currentUser.lastName" formControlNam="lastName"></p>
+      <p>Nom : <input type="text" [placeholder]="currentUser.lastName" formControlName="lastName"></p>
       <p>Prénom : <input type="text" [placeholder]="currentUser.firstName" formControlName="firstName"></p>
       <p>Date de naissance : <input type="date" [placeholder]="currentUser.birthdate" formControlName="birthdate"></p>
       <p>Mobile : <input type="text" [placeholder]="currentUser.phoneNumber" formControlName="phoneNumber"></p>

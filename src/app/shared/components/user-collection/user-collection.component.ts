@@ -11,12 +11,12 @@ export class UserCollectionComponent implements OnInit {
   currentItemList!: any[];
   showItem: boolean = false;
   navigateSearch: NavigationExtras = {
-    state: {
+    queryParams: {
       component: "search"
     }
   };
   navigateCreate: NavigationExtras = {
-    state: {
+    queryParams: {
       component: "create"
     }
   };
