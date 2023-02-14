@@ -3,7 +3,12 @@
     <h1>{{item.name}}</h1>
     <ul>
       <li *ngFor="let itemCollection of item.items">
-        <p class="pointer" (click)="itemChoiced(itemCollection.id)">{{itemCollection.name}}</p>
+        <div class="containPointerTrash">
+          <div class="pointer" (click)="itemChoiced(itemCollection.id)">
+            {{itemCollection.name}}
+          </div>
+          <img class="trash" src="../../../../assets/image/trash.png" alt="trash">
+        </div>
       </li>
     </ul>
   </div>

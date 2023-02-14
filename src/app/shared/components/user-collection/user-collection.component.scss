@@ -1,3 +1,51 @@
+// h1 {
+//   font-size: 2em;
+//   font-weight: bold;
+//   text-align: center;
+//   margin-bottom: 1em;
+// }
+
+// ul {
+//   list-style: none;
+//   padding: 0;
+//   margin: 0;
+// }
+
+// li {
+//   padding: 1em;
+//   border-bottom: 1px solid #ccc;
+// }
+
+// button {
+//   display: block;
+//   margin: 2em auto;
+//   padding: 1em 2em;
+//   background-color: lightblue;
+//   color: white;
+//   border: none;
+//   border-radius: 5px;
+//   font-size: 1.2em;
+//   cursor: pointer;
+//   transition: all 0.3s;
+
+//   &:hover {
+//     background-color: blue;
+//     transform: translateY(-3px);
+//     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+//   }
+
+//   @media screen and (max-width: 767px) {
+//     padding: 0.5em 1em;
+//     font-size: 1em;
+//   }
+// }
+
+// @media screen and (max-width: 767px) {
+//   h1 {
+//     font-size: 1.5em;
+//   }
+// }
+
 h1 {
   font-size: 2em;
   font-weight: bold;
@@ -43,5 +91,19 @@ button {
 @media screen and (max-width: 767px) {
   h1 {
     font-size: 1.5em;
+  }
+}
+
+.containPointerTrash {
+  display: flex;
+  align-items: center;
+
+  .pointer {
+    flex-grow: 1;
+  }
+
+  .trash {
+    margin-left: 1em;
+    height: 50px;
   }
 }
