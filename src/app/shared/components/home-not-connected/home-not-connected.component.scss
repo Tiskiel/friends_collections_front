@@ -1,44 +1,70 @@
-$buttonColor: #2ecc71;
-$buttonDark: darken($buttonColor, 10%);
-$buttonDarker: darken($buttonDark, 10%);
-
 main {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  font-family: sans-serif;
 
-  p {
-    font-size: 1.5rem;
-  }
+  div {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
 
-  form {
-    button {
-      background: $buttonColor;
-      border-radius: 3px;
-      box-shadow: 0px 5px 0px $buttonDark;
-      border: 0;
-      color: white;
-      font-size: 17px;
-      padding: 10px 30px;
-      display: inline-block;
-      outline: 0;
+    p {
+      font-size: 24px;
+      margin-top: 0;
+    }
 
-      &:hover {
-        background: $buttonDark;
-        box-shadow: 0px 5px 0px $buttonDarker;
+    form {
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
       }
 
-      &:active {
-        box-shadow: none;
-        margin-top: 5px;
+      input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+      }
+
+      button[type="submit"] {
+        background-color: #008CBA;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        cursor: pointer;
       }
     }
+
+    .clickHere {
+      color: #008CBA;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  main div {
+    max-width: 300px;
+  }
+
+  form input,
+  form button[type="submit"] {
+    font-size: 14px;
+    padding: 8px;
   }
 
   .clickHere {
-    &:hover {
-      cursor: pointer;
-      color: blue;
-    }
+    font-size: 14px;
   }
 }
