@@ -11,6 +11,8 @@ export class CollectionService {
   listItemUserUrl: string = environment.USER_LIST_ITEMS_PATH;
   typeItemUrl: string = environment.GET_TYPE_BY_ID_PATH;
   itemByIdUrl: string = environment.GET_ITEM_BY_ID_PATH;
+  removeItemUrl: string = environment.REMOVE_ITEM_TO_LIST_PATH;
+
   currentList!: any[];
   currentItem!: Item;
   itemObservable: BehaviorSubject<Item> = new BehaviorSubject<Item>(this.currentItem);
@@ -38,5 +40,9 @@ export class CollectionService {
   defineCurrentItem(item: Item) {
     this.currentItem = item;
     this.itemObservable.next(item);
+  }
+
+  removeItemToList(id: number): Observable<any> {
+    return this._client.delete(this.removeItemUrl + id);
   }
 }

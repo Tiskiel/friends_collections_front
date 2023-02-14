@@ -7,7 +7,8 @@
           <div class="pointer" (click)="itemChoiced(itemCollection.id)">
             {{itemCollection.name}}
           </div>
-          <img class="trash" src="../../../../assets/image/trash.png" alt="trash">
+          <img (click)="removeItem(itemCollection.id)" class="trash" src="../../../../assets/image/trash.png"
+            alt="trash">
         </div>
       </li>
     </ul>

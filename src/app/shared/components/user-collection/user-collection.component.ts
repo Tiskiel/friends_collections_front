@@ -32,4 +32,11 @@ export class UserCollectionComponent implements OnInit {
     this.itemClicked();
   }
 
+  removeItem(itemId: number): void {
+    this._collectionService.removeItemToList(itemId).subscribe((data: any) => {
+
+    });
+    location.reload();
+  }
+
 }
