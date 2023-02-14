@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Item } from '../../models/item.model';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { CollectionService } from '../../services/collection.service';
 
 @Component({
@@ -11,10 +10,21 @@ import { CollectionService } from '../../services/collection.service';
 export class UserCollectionComponent implements OnInit {
   currentItemList!: any[];
   showItem: boolean = false;
+  navigateSearch: NavigationExtras = {
+    state: {
+      component: "search"
+    }
+  };
+  navigateCreate: NavigationExtras = {
+    state: {
+      component: "create"
+    }
+  };
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _collectionService: CollectionService
+    private _collectionService: CollectionService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -37,6 +47,14 @@ export class UserCollectionComponent implements OnInit {
 
     });
     location.reload();
+  }
+
+  clickSearchButton(): void {
+    this._router.navigate(['items'], this.navigateSearch);
+  }
+
+  clickCreateButton(): void {
+    this._router.navigate(['items'], this.navigateCreate);
   }
 
 }

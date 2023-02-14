@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'collection',
     loadChildren: () => import('./pages/collection/collection.module').then( m => m.CollectionPageModule)
+  },
+  {
+    path: 'items',
+    loadChildren: () => import('./pages/items/items.module').then( m => m.ItemsPageModule)
   }
 ];
 
