@@ -1,6 +1,6 @@
 <div class="searchItemBar">
-  <button class="searchButton">chercher</button>
-  <button class="createButton">créer</button>
+  <button (click)="clickSearchButton()" class="searchButton">chercher</button>
+  <button (click)="clickCreateButton()" class="createButton">créer</button>
 </div>
 <div *ngIf="!showItem">
   <div *ngFor="let item of currentItemList">

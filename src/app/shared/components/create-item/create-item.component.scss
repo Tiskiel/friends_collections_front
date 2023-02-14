@@ -1,0 +1,80 @@
+.body {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .titleBodyInformations {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .lowTitleExplication {
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    .navigateToSearch {
+      color: #0066cc;
+      text-decoration: underline;
+
+      &:hover {
+        color: #003366;
+      }
+    }
+  }
+
+  .bodyInformations {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+
+    p {
+      margin-bottom: 1rem;
+
+      input,
+      select,
+      textarea {
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        font-size: 1.2rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>') no-repeat right 0.75rem center/8% auto;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .body {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+
+    .titleBodyInformations {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .lowTitleExplication {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .bodyInformations {
+      font-size: 1rem;
+      padding: 0.5rem;
+      border-radius: 0;
+    }
+  }
+}

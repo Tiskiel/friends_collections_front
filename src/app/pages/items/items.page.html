@@ -1,8 +1,11 @@
 <ion-content>
-  <div *ngIf="component === 'search'">
-    <p>Je suis dans search</p>
-  </div>
-  <div *ngIf="component === 'create'">
-    <p>Je suis dans create</p>
+  <app-header></app-header>
+  <div class="body">
+    <div *ngIf="component === 'search'">
+      <p>Je suis dans search</p>
+    </div>
+    <div *ngIf="component === 'create'">
+      <app-create-item></app-create-item>
+    </div>
   </div>
 </ion-content>

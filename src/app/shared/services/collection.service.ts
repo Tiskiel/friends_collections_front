@@ -12,6 +12,7 @@ export class CollectionService {
   typeItemUrl: string = environment.GET_TYPE_BY_ID_PATH;
   itemByIdUrl: string = environment.GET_ITEM_BY_ID_PATH;
   removeItemUrl: string = environment.REMOVE_ITEM_TO_LIST_PATH;
+  getAllTypesUrl: string = environment.GET_ALL_TYPES_PATH;
 
   currentList!: any[];
   currentItem!: Item;
@@ -23,6 +24,10 @@ export class CollectionService {
 
   getListItemUser(): Observable<any> {
     return this._client.get(this.listItemUserUrl);
+  }
+
+  getAllTypes(): Observable<any> {
+    return this._client.get(this.getAllTypesUrl);
   }
 
   getItemType(itemId: string): Observable<any> {
