@@ -10,6 +10,7 @@ import { CollectionService } from '../../services/collection.service';
 export class UserCollectionComponent implements OnInit {
   currentItemList!: any[];
   showItem: boolean = false;
+  currentType!: string;
   navigateSearch: NavigationExtras = {
     queryParams: {
       component: "search"
@@ -55,6 +56,14 @@ export class UserCollectionComponent implements OnInit {
 
   clickCreateButton(): void {
     this._router.navigate(['items'], this.navigateCreate);
+  }
+
+  showListItemOfCurrentType(type: string): void {
+    if (this.currentType === type) {
+      this.currentType = "";
+    } else {
+      this.currentType = type;
+    }
   }
 
 }

@@ -3,9 +3,9 @@
   <button (click)="clickCreateButton()" class="createButton">créer</button>
 </div>
 <div *ngIf="!showItem">
-  <div *ngFor="let item of currentItemList">
+  <div *ngFor="let item of currentItemList" (click)="showListItemOfCurrentType(item.name)">
     <h1>{{item.name}}</h1>
-    <ul>
+    <ul *ngIf="item.name === currentType">
       <li *ngFor="let itemCollection of item.items">
         <div class="containPointerTrash">
           <div class="pointer" (click)="itemChoiced(itemCollection.id)">
