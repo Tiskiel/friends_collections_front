@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../../models/item.model';
 import { Type } from '../../models/type.model';
+import { CollectionService } from '../../services/collection.service';
 import { UtilitiesService } from '../../services/utilities.service';
 
 @Component({
@@ -18,7 +19,9 @@ export class CreateItemComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _utilities: UtilitiesService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _collectionService: CollectionService,
+    private _router: Router
   ) {
     this.dataNewItemForm = this._formBuilder.group({
       name: ['', Validators.required],
@@ -40,6 +43,19 @@ export class CreateItemComponent implements OnInit {
 
   submitNewItem(): void {
     this.newItemData = this.dataNewItemForm.value;
+    //Tant que la feature image est pas implémentée
+    this.newItemData.picture = null;
+    if (this.newItemData.year === "") {
+      this.newItemData.year = null;
+    }
+    console.log(this.newItemData);
+
+    this._collectionService.createItem(this.newItemData).subscribe((data) => {
+      console.log(data);
+
+    });
+
+    this._router.navigate(['collection']);
   }
 
 }

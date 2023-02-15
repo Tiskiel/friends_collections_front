@@ -95,7 +95,7 @@
       <p>Origine : <select data-placeholder="Choisi ton pays...." formControlName="origin">
           <option *ngFor="let country of arrayCountry" [value]="country">{{country}}</option>
         </select></p>
-      <p>Year : <input type="text" placeholder="1922, 1991, etc..." formControlName="year"></p>
+      <p>Year : <input type="date" placeholder="1922, 1991, etc..." formControlName="year"></p>
       <p>Rareté : <select formControlName="rarity">
           <option value="Ultra rare">Ultra rare</option>
           <option value="Rare">Rare</option>

@@ -22,7 +22,6 @@ export class TypeList implements Resolve<any> {
 
     return this._collection.getAllTypes().pipe(
       tap((data: Profile) => {
-        console.log(data);
 
       }),
       catchError((error) => {

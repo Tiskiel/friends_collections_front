@@ -13,6 +13,7 @@ export class CollectionService {
   itemByIdUrl: string = environment.GET_ITEM_BY_ID_PATH;
   removeItemUrl: string = environment.REMOVE_ITEM_TO_LIST_PATH;
   getAllTypesUrl: string = environment.GET_ALL_TYPES_PATH;
+  createItemUrl: string = environment.CREATE_NEW_ITEM_PATH;
 
   currentList!: any[];
   currentItem!: Item;
@@ -36,6 +37,10 @@ export class CollectionService {
 
   getItemById(id: number): Observable<any> {
     return this._client.get(this.itemByIdUrl + id);
+  }
+
+  createItem(item: Item): Observable<any> {
+    return this._client.post(this.createItemUrl, item);
   }
 
   defineCurrentUserItemlist(data: Item[]) {
