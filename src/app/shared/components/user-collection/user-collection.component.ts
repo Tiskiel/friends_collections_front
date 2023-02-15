@@ -59,10 +59,10 @@ export class UserCollectionComponent implements OnInit {
   }
 
   showListItemOfCurrentType(type: string): void {
-    if (this.currentType === type) {
-      this.currentType = "";
-    } else {
+    if (this.currentType !== type) {
       this.currentType = type;
+    } else {
+      this.currentType = "";
     }
   }
 
