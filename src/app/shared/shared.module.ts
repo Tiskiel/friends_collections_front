@@ -9,6 +9,7 @@ import { ProfileUpdateComponent } from './components/profile-update/profile-upda
 import { UserCollectionComponent } from './components/user-collection/user-collection.component';
 import { ItemComponent } from './components/item/item.component';
 import { CreateItemComponent } from './components/create-item/create-item.component';
+import { SearchItemComponent } from './components/search-item/search-item.component';
 
 
 
@@ -21,7 +22,8 @@ import { CreateItemComponent } from './components/create-item/create-item.compon
     ProfileUpdateComponent,
     UserCollectionComponent,
     ItemComponent,
-    CreateItemComponent
+    CreateItemComponent,
+    SearchItemComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { CreateItemComponent } from './components/create-item/create-item.compon
     ProfileUpdateComponent,
     UserCollectionComponent,
     ItemComponent,
-    CreateItemComponent
+    CreateItemComponent,
+    SearchItemComponent
   ]
 })
 export class SharedModule { }
