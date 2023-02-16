@@ -14,7 +14,6 @@ export class ProfileService {
   ) { }
 
   updateMyProfil(data: UpdateProfile): Observable<any> {
-    console.log(this._client.put(this.urlUpdateMyProfil, data));
     return this._client.put(this.urlUpdateMyProfil, data);
   }
 }

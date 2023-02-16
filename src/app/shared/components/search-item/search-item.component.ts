@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Item } from '../../models/item.model';
 
 @Component({
   selector: 'app-search-item',
@@ -6,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemComponent implements OnInit {
+  currentItemsList!: Item[];
+  constructor(
+    private _activatedRoute: ActivatedRoute
+  ) { }
 
-  constructor() { }
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.currentItemsList = this._activatedRoute.snapshot.data['allItemsList'].result.items;
+  }
 
 }

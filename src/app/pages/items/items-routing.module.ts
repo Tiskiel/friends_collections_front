@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ItemsList } from 'src/app/resolver/all-items-list.resolver';
 import { IsConnectedResolver } from 'src/app/resolver/isConnected.resolver';
 import { TypeList } from 'src/app/resolver/type-list.resolver';
 import { IsConnectedGuard } from 'src/app/shared/guard/is-connected.guard';
@@ -12,7 +13,8 @@ const routes: Routes = [
     component: ItemsPage,
     resolve: {
       connectedUser: IsConnectedResolver,
-      collectionTypesList: TypeList
+      collectionTypesList: TypeList,
+      allItemsList: ItemsList
     }, canActivate: [IsConnectedGuard]
   }
 ];

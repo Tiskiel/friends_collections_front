@@ -13,6 +13,7 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
 
 
 
+
 @NgModule({
   declarations: [
     HomeConnectedComponent,
@@ -23,12 +24,14 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
     UserCollectionComponent,
     ItemComponent,
     CreateItemComponent,
-    SearchItemComponent
+    SearchItemComponent,
+
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   exports: [
     HomeConnectedComponent,

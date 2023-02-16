@@ -29,6 +29,10 @@ export class UserCollectionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loadListItems();
+  }
+
+  loadListItems() {
     this.currentItemList = this._activatedRoute.snapshot.data['collectionListUser'];
   }
 
