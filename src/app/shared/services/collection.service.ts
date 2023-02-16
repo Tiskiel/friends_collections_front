@@ -16,6 +16,7 @@ export class CollectionService {
   createItemUrl: string = environment.CREATE_NEW_ITEM_PATH;
   allItemsUrl: string = environment.GET_ALL_ITEMS_PATH;
   getItemByNameUrl: string = environment.GET_ITEM_BY_NAME;
+  addItemToListUrl: string = environment.ADD_ITEM_TO_LIST;
 
   currentList!: any[];
   currentItem!: Item;
@@ -24,6 +25,10 @@ export class CollectionService {
   constructor(
     private _client: HttpClient
   ) { }
+
+  addItemToList(itemId: number): Observable<any> {
+    return this._client.post(this.addItemToListUrl + itemId);
+  }
 
   getItemByName(name: string): Observable<any> {
     return this._client.get(this.getItemByNameUrl + name);

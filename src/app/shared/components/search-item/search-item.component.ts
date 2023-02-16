@@ -57,8 +57,12 @@ export class SearchItemComponent implements OnInit {
     this._navigation.currentItemComponentEmitter('');
   }
 
-  userHaveIt(itemId: number) {
+  userHaveIt(itemId: number): boolean {
     return this._collectionService.userHaveThisItem(itemId);
+  }
+
+  addToList(itemid: number) {
+    this._collectionService;
   }
 
 }
