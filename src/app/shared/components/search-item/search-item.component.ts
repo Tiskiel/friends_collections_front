@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Item } from '../../models/item.model';
 import { CollectionService } from '../../services/collection.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-search-item',
@@ -13,15 +14,12 @@ export class SearchItemComponent implements OnInit {
   currentSearch!: string;
   currentSearchList!: Item[];
   countItemsFound!: number;
-  extraNavigationCreate: NavigationExtras = {
-    queryParams: {
-      component: "create"
-    }
-  };
+
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _collectionService: CollectionService,
-    private _router: Router
+    private _router: Router,
+    private _navigation: NavigationService
   ) { }
 
   ngOnInit() {
@@ -34,8 +32,6 @@ export class SearchItemComponent implements OnInit {
       next: (data: any) => {
         this.currentSearchList = data.result.items;
         this.countItemsFound = data.result.count;
-        console.log(data.result.items);
-
       }
     });
   }
@@ -47,7 +43,8 @@ export class SearchItemComponent implements OnInit {
   }
 
   navigateToCreateItem() {
-    this._router.navigate(['items'], this.extraNavigationCreate);
+    this._router.navigate(['items']);
+    this._navigation.currentItemComponentEmitter("create");
   }
 
 }

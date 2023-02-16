@@ -2,7 +2,7 @@
   <h2 class="titleBodyInformations">Bienvenu sur la page de création d'objet</h2>
   <h3 class="lowTitleExplication">
     Avant de créer ton objet, as-tu pensé à aller voir si l'un de nos membres ne l'avait pas déjà crée ?
-    <span class="navigateToSearch"> click ici !</span>
+    <span class="navigateToSearch" (click)="naviGateToSearch()"> click ici !</span>
   </h3>
   <div class="bodyInformations">
     <form [formGroup]="dataNewItemForm" (submit)="submitNewItem()">

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../../models/item.model';
 import { Type } from '../../models/type.model';
 import { CollectionService } from '../../services/collection.service';
+import { NavigationService } from '../../services/navigation.service';
 import { UtilitiesService } from '../../services/utilities.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class CreateItemComponent implements OnInit {
     private _utilities: UtilitiesService,
     private _activatedRoute: ActivatedRoute,
     private _collectionService: CollectionService,
-    private _router: Router
+    private _router: Router,
+    private _navigation: NavigationService
   ) {
     this.dataNewItemForm = this._formBuilder.group({
       name: ['', Validators.required],
@@ -39,6 +41,10 @@ export class CreateItemComponent implements OnInit {
 
   ngOnInit() {
     this.typeList = this._activatedRoute.snapshot.data['collectionTypesList'].result.type;
+  }
+
+  naviGateToSearch() {
+    this._navigation.currentItemComponentEmitter('search');
   }
 
   submitNewItem(): void {
