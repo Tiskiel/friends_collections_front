@@ -22,4 +22,8 @@ export class ItemsPage implements OnInit {
       this.component = data;
     });
   }
+
+  backPage() {
+    this._navigation.currentItemComponentEmitter('search');
+  }
 }

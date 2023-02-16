@@ -14,6 +14,7 @@ export class SearchItemComponent implements OnInit {
   currentSearch!: string;
   currentSearchList!: Item[];
   countItemsFound!: number;
+  itemClicked: boolean = false;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -47,4 +48,10 @@ export class SearchItemComponent implements OnInit {
     this._navigation.currentItemComponentEmitter("create");
   }
 
+  itemChoice(itemId: number) {
+    this._collectionService.getItemById(itemId).subscribe((data: any) => {
+      this._collectionService.defineCurrentItem(data.result);
+    });
+    this._navigation.currentItemComponentEmitter('');
+  }
 }

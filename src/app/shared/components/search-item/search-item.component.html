@@ -8,7 +8,7 @@
 </div>
 <div *ngIf="currentSearch">
   <div class="containerCard">
-    <div class="body" *ngFor="let item of currentSearchList">
+    <div class="body pointer" *ngFor="let item of currentSearchList" (click)="itemChoice(item.id)">
       <div class="imageContainer">
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
         <div class="cardDetails">
@@ -21,7 +21,7 @@
   </div>
 </div>
 <div class="containerCard" *ngIf="!currentSearch">
-  <div class="body" *ngFor="let item of currentItemsList">
+  <div class="body pointer" *ngFor="let item of currentItemsList" (click)="itemChoice(item.id)">
     <div class="imageContainer">
       <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
       <div class="cardDetails">

@@ -7,5 +7,9 @@
     <div *ngIf="component === 'create'">
       <app-create-item></app-create-item>
     </div>
+    <div *ngIf="component === ''">
+      <app-item></app-item>
+      <button (click)="backPage()">Précédent</button>
+    </div>
   </div>
 </ion-content>

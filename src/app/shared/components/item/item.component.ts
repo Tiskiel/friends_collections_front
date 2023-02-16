@@ -9,6 +9,7 @@ import { CollectionService } from '../../services/collection.service';
 })
 export class ItemComponent implements OnInit {
   currentItem!: Item;
+  itemClicked: boolean = false;
   constructor(
     private _collectionService: CollectionService
   ) { }
