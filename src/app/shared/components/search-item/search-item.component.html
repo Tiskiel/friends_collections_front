@@ -1,7 +1,18 @@
 <div class="searchBar">
   <input type="text" [(ngModel)]="currentSearch" (input)="changeSearchInput()">
   <div *ngIf="currentSearch">
-
+    <div class="containerCard">
+      <div class="body" *ngFor="let item of currentSearchList">
+        <div class="imageContainer">
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <div class="cardDetails">
+            <div class="itemTile">{{item.name}}</div>
+            <div class="subTitleItemVersion">Version: {{item.version}}</div>
+            <div class="subTitleItemLanguage">Langue: {{item.language}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="containerCard" *ngIf="!currentSearch">

@@ -25,8 +25,8 @@ export class CollectionService {
     private _client: HttpClient
   ) { }
 
-  getItemByName(name: string) {
-    return this._client.get(this.getItemByName + name);
+  getItemByName(name: string): Observable<any> {
+    return this._client.get(this.getItemByNameUrl + name);
   }
 
   getAllItems(): Observable<any> {
