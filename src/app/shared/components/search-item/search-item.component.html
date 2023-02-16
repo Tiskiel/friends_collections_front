@@ -1,4 +1,10 @@
-<div class="containerCard">
+<div class="searchBar">
+  <input type="text" [(ngModel)]="currentSearch" (input)="changeSearchInput()">
+  <div *ngIf="currentSearch">
+
+  </div>
+</div>
+<div class="containerCard" *ngIf="!currentSearch">
   <div class="body" *ngFor="let item of currentItemsList">
     <div class="imageContainer">
       <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />

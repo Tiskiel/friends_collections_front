@@ -15,6 +15,7 @@ export class CollectionService {
   getAllTypesUrl: string = environment.GET_ALL_TYPES_PATH;
   createItemUrl: string = environment.CREATE_NEW_ITEM_PATH;
   allItemsUrl: string = environment.GET_ALL_ITEMS_PATH;
+  getItemByNameUrl: string = environment.GET_ITEM_BY_NAME;
 
   currentList!: any[];
   currentItem!: Item;
@@ -23,6 +24,10 @@ export class CollectionService {
   constructor(
     private _client: HttpClient
   ) { }
+
+  getItemByName(name: string) {
+    return this._client.get(this.getItemByName + name);
+  }
 
   getAllItems(): Observable<any> {
     return this._client.get(this.allItemsUrl);

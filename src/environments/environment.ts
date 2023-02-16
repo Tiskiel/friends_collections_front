@@ -14,7 +14,8 @@ export const environment = {
   REMOVE_ITEM_TO_LIST_PATH: "http://localhost:8080/api/list/remove/",
   CREATE_NEW_ITEM_PATH: "http://localhost:8080/api/collection/items/",
   GET_ALL_TYPES_PATH: "http://localhost:8080/api/types/type",
-  GET_ALL_ITEMS_PATH: "http://localhost:8080/api/collection/items"
+  GET_ALL_ITEMS_PATH: "http://localhost:8080/api/collection/items",
+  GET_ITEM_BY_NAME: "http://localhost:8080/api/collection/items/"
 };
 
 /*

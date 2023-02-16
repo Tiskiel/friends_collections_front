@@ -9,12 +9,24 @@ import { Item } from '../../models/item.model';
 })
 export class SearchItemComponent implements OnInit {
   currentItemsList!: Item[];
+  currentSearch!: string;
+
   constructor(
     private _activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.currentItemsList = this._activatedRoute.snapshot.data['allItemsList'].result.items;
+  }
+
+  loadDataSearch() {
+
+  }
+
+  changeSearchInput() {
+    if (this.currentSearch) {
+      this.loadDataSearch();
+    }
   }
 
 }
