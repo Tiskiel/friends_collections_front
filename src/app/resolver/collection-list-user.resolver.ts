@@ -6,6 +6,7 @@ import {
 } from '@angular/router';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Item } from '../shared/models/item.model';
+import { UserList } from '../shared/models/userList.model';
 import { CollectionService } from '../shared/services/collection.service';
 import { MemberService } from '../shared/services/member.service';
 
@@ -24,7 +25,7 @@ export class CollectionListUserResolver implements Resolve<boolean> {
     this._member.isConnectedObservable.next(true);
 
     return this._listCollectionService.getListItemUser().pipe(
-      tap((data: any) => {
+      tap((data: UserList[]) => {
         this._listCollectionService.defineCurrentUserItemlist(data);
       }),
       catchError((error) => {

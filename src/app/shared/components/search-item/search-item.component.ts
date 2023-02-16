@@ -54,7 +54,7 @@ export class SearchItemComponent implements OnInit {
     this._collectionService.getItemById(itemId).subscribe((data: any) => {
       this._collectionService.defineCurrentItem(data.result);
     });
-    this._navigation.currentItemComponentEmitter('');
+    this._navigation.currentItemComponentEmitter('item');
   }
 
   userHaveIt(itemId: number): boolean {
@@ -62,7 +62,9 @@ export class SearchItemComponent implements OnInit {
   }
 
   addToList(itemid: number) {
-    this._collectionService;
+    this._collectionService.addItemToList(itemid).subscribe((data) => {
+      console.log(data);
+    });
   }
 
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Item } from '../models/item.model';
+import { UserList } from '../models/userList.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,16 +19,16 @@ export class CollectionService {
   getItemByNameUrl: string = environment.GET_ITEM_BY_NAME;
   addItemToListUrl: string = environment.ADD_ITEM_TO_LIST;
 
-  currentList!: any[];
+  currentList!: UserList[];
   currentItem!: Item;
   itemObservable: BehaviorSubject<Item> = new BehaviorSubject<Item>(this.currentItem);
-  listUserObservable: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.currentList);
+  listUserObservable: BehaviorSubject<UserList[]> = new BehaviorSubject<UserList[]>(this.currentList);
   constructor(
     private _client: HttpClient
   ) { }
 
   addItemToList(itemId: number): Observable<any> {
-    return this._client.post(this.addItemToListUrl + itemId);
+    return this._client.post(this.addItemToListUrl, itemId);
   }
 
   getItemByName(name: string): Observable<any> {
@@ -58,7 +59,7 @@ export class CollectionService {
     return this._client.post(this.createItemUrl, item);
   }
 
-  defineCurrentUserItemlist(data: Item[]) {
+  defineCurrentUserItemlist(data: UserList[]) {
     this.currentList = data;
     this.listUserObservable.next(data);
   }
@@ -74,6 +75,7 @@ export class CollectionService {
   }
 
   userHaveThisItem(itemId: number): boolean {
-    return this.currentList.find(item => item.id === itemId);
+    const index = this.currentList.find(object => object.items.find(item => item.id === itemId));
+    return !!index;
   }
 }
