@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Item } from '../../models/item.model';
 import { CollectionService } from '../../services/collection.service';
 
@@ -13,10 +13,15 @@ export class SearchItemComponent implements OnInit {
   currentSearch!: string;
   currentSearchList!: Item[];
   countItemsFound!: number;
-
+  extraNavigationCreate: NavigationExtras = {
+    queryParams: {
+      component: "create"
+    }
+  };
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _collectionService: CollectionService
+    private _collectionService: CollectionService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -29,6 +34,8 @@ export class SearchItemComponent implements OnInit {
       next: (data: any) => {
         this.currentSearchList = data.result.items;
         this.countItemsFound = data.result.count;
+        console.log(data.result.items);
+
       }
     });
   }
@@ -37,6 +44,10 @@ export class SearchItemComponent implements OnInit {
     if (this.currentSearch) {
       this.loadDataSearch();
     }
+  }
+
+  navigateToCreateItem() {
+    this._router.navigate(['items'], this.extraNavigationCreate);
   }
 
 }

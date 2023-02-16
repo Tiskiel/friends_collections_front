@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { CollectionService } from '../../services/collection.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-user-collection',
@@ -11,21 +12,12 @@ export class UserCollectionComponent implements OnInit {
   currentItemList!: any[];
   showItem: boolean = false;
   currentType!: string;
-  navigateSearch: NavigationExtras = {
-    queryParams: {
-      component: "search"
-    }
-  };
-  navigateCreate: NavigationExtras = {
-    queryParams: {
-      component: "create"
-    }
-  };
 
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _collectionService: CollectionService,
-    private _router: Router
+    private _router: Router,
+    private _navigation: NavigationService
   ) { }
 
   ngOnInit() {
@@ -55,11 +47,13 @@ export class UserCollectionComponent implements OnInit {
   }
 
   clickSearchButton(): void {
-    this._router.navigate(['items'], this.navigateSearch);
+    this._router.navigate(['items']);
+    this._navigation.currentItemComponentEmitter("search");
   }
 
   clickCreateButton(): void {
-    this._router.navigate(['items'], this.navigateCreate);
+    this._router.navigate(['items']);
+    this._navigation.currentItemComponentEmitter("create");
   }
 
   showListItemOfCurrentType(type: string): void {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavigationService } from 'src/app/shared/services/navigation.service';
 
 @Component({
   selector: 'app-items',
@@ -9,11 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 export class ItemsPage implements OnInit {
   component!: string;
   constructor(
-    private _activatedRoute: ActivatedRoute
+    private _navigation: NavigationService
   ) { }
 
   ngOnInit() {
-    this.component = this._activatedRoute.snapshot?.queryParams['component'];
+    this.showComponent();
   }
 
+  showComponent() {
+    this._navigation.currentItemComponentObserval.subscribe((data: string) => {
+      this.component = data;
+    });
+  }
 }
