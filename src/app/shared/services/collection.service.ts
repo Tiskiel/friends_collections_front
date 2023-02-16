@@ -20,7 +20,7 @@ export class CollectionService {
   currentList!: any[];
   currentItem!: Item;
   itemObservable: BehaviorSubject<Item> = new BehaviorSubject<Item>(this.currentItem);
-
+  listUserObservable: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.currentList);
   constructor(
     private _client: HttpClient
   ) { }
@@ -55,7 +55,9 @@ export class CollectionService {
 
   defineCurrentUserItemlist(data: Item[]) {
     this.currentList = data;
+    this.listUserObservable.next(data);
   }
+
 
   defineCurrentItem(item: Item) {
     this.currentItem = item;
@@ -64,5 +66,9 @@ export class CollectionService {
 
   removeItemToList(id: number): Observable<any> {
     return this._client.delete(this.removeItemUrl + id);
+  }
+
+  userHaveThisItem(itemId: number): boolean {
+    return this.currentList.find(item => item.id === itemId);
   }
 }

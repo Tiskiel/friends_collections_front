@@ -62,6 +62,7 @@ export class CreateItemComponent implements OnInit {
     });
 
     this._router.navigate(['collection']);
+    this._navigation.isNavigateEmitter(true);
   }
 
 }

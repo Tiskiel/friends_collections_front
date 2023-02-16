@@ -19,7 +19,11 @@ export class ItemsPage implements OnInit {
 
   showComponent() {
     this._navigation.currentItemComponentObserval.subscribe((data: string) => {
-      this.component = data;
+      if (data) {
+        this.component = data;
+      } else {
+        this.component = 'search';
+      }
     });
   }
 

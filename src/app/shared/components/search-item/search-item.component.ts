@@ -11,6 +11,7 @@ import { NavigationService } from '../../services/navigation.service';
 })
 export class SearchItemComponent implements OnInit {
   currentItemsList!: Item[];
+  currentUserList!: Item[];
   currentSearch!: string;
   currentSearchList!: Item[];
   countItemsFound!: number;
@@ -25,6 +26,7 @@ export class SearchItemComponent implements OnInit {
 
   ngOnInit() {
     this.currentItemsList = this._activatedRoute.snapshot.data['allItemsList'].result.items;
+    this.currentUserList = this._activatedRoute.snapshot.data['userItemList'];
     this.loadDataSearch();
   }
 
@@ -54,4 +56,9 @@ export class SearchItemComponent implements OnInit {
     });
     this._navigation.currentItemComponentEmitter('');
   }
+
+  userHaveIt(itemId: number) {
+    return this._collectionService.userHaveThisItem(itemId);
+  }
+
 }

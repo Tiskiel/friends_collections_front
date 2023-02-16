@@ -12,6 +12,7 @@ export class UserCollectionComponent implements OnInit {
   currentItemList!: any[];
   showItem: boolean = false;
   currentType!: string;
+  haveNavigate!: boolean;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -22,10 +23,19 @@ export class UserCollectionComponent implements OnInit {
 
   ngOnInit() {
     this.loadListItems();
+    this.refreshPage();
   }
 
   loadListItems() {
     this.currentItemList = this._activatedRoute.snapshot.data['collectionListUser'];
+  }
+
+  refreshPage() {
+    this._collectionService.getListItemUser().subscribe({
+      next: (data: any) => {
+        this.currentItemList = data;
+      }
+    });
   }
 
   itemClicked(): void {
