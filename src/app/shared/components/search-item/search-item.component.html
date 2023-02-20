@@ -15,7 +15,11 @@
           <div class="itemTile">{{item.name}}</div>
           <div class="subTitleItemVersion">Version: {{item.version}}</div>
           <div class="subTitleItemLanguage">Langue: {{item.language}}</div>
-          <button *ngIf="!userHaveIt(item.id)" class="addItemTolist" (click)="addToList(item.id)">add to list</button>
+          <div class="buttonContainer">
+            <button *ngIf="!userHaveIt(item.id)" class="addItemTolist" (click)="addToList(item.id)">add to list</button>
+            <button *ngIf="!userHaveIt(item.id)" class="addItemTolist">add to
+              Wishlist</button>
+          </div>
         </div>
       </div>
     </div>
@@ -29,7 +33,11 @@
         <div class="itemTile">{{item.name}}</div>
         <div class="subTitleItemVersion">Version: {{item.version}}</div>
         <div class="subTitleItemLanguage">Langue: {{item.language}}</div>
-        <button *ngIf="!userHaveIt(item.id)" class="addItemTolist" (click)="addToList(item.id)">add to list</button>
+        <div class="buttonContainer">
+          <button *ngIf="!userHaveIt(item.id)" class="addItemTolist" (click)="addToList(item.id)">add to list</button>
+          <button *ngIf="!userHaveIt(item.id)" class="addItemTolist">add to
+            Wishlist</button>
+        </div>
       </div>
     </div>
   </div>

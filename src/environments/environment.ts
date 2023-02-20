@@ -16,7 +16,7 @@ export const environment = {
   GET_ALL_TYPES_PATH: "http://localhost:8080/api/types/type",
   GET_ALL_ITEMS_PATH: "http://localhost:8080/api/collection/items",
   GET_ITEM_BY_NAME: "http://localhost:8080/api/collection/items/",
-  ADD_ITEM_TO_LIST: "http://localhost:8080/api/list/add/"
+  ADD_ITEM_TO_LIST: "http://localhost:8080/api/list/add"
 };
 
 /*

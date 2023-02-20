@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Item } from '../../models/item.model';
+import { ItemId } from '../../models/itemId.model';
 import { CollectionService } from '../../services/collection.service';
 import { NavigationService } from '../../services/navigation.service';
 
@@ -16,6 +17,7 @@ export class SearchItemComponent implements OnInit {
   currentSearchList!: Item[];
   countItemsFound!: number;
   itemClicked: boolean = false;
+  itemIdObject!: ItemId;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -61,8 +63,9 @@ export class SearchItemComponent implements OnInit {
     return this._collectionService.userHaveThisItem(itemId);
   }
 
-  addToList(itemid: number) {
-    this._collectionService.addItemToList(itemid).subscribe((data) => {
+  addToList(itemId: number) {
+    this.itemIdObject.itemId = itemId;
+    this._collectionService.addItemToList(this.itemIdObject).subscribe((data) => {
       console.log(data);
     });
   }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Item } from '../models/item.model';
+import { ItemId } from '../models/itemId.model';
 import { UserList } from '../models/userList.model';
 
 @Injectable({
@@ -27,7 +28,7 @@ export class CollectionService {
     private _client: HttpClient
   ) { }
 
-  addItemToList(itemId: number): Observable<any> {
+  addItemToList(itemId: ItemId): Observable<any> {
     return this._client.post(this.addItemToListUrl, itemId);
   }
 

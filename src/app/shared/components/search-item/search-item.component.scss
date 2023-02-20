@@ -54,8 +54,11 @@
       }
 
       .cardDetails {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
         width: 100%;
-        height: 120px;
+        height: 160px;
         padding: 10px;
         background-color: rgba(0, 0, 0, 0.5);
         color: white;
@@ -80,12 +83,31 @@
         .subTitleItemLanguage {
           margin-bottom: 5px;
         }
+
+        .buttonContainer {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          .addItemTolist {
+            width: 40%;
+            margin-left: 5%;
+            margin-right: 5%;
+            background-color: #008CBA;
+            color: #fff;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
 }
 
-/* Media queries */
+
 @media only screen and (min-width: 768px) {
   .containerCard {
     display: flex;
